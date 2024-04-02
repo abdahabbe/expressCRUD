@@ -1,0 +1,9 @@
+<h1>Your Contact List</h1>
+<% if (cont.length < 1) { %>
+<p>No contact found</p>
+<% } else { %> <% cont.forEach(item => { %>
+<ul>
+  <li>Nama: <%= item.nama %></li>
+  <li>HP: <%= item.phone %></li>
+</ul>
+<% }) %> <% } %>
