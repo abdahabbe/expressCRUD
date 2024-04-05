@@ -1,1 +1,70 @@
-<h1>Welcome to my page: <%= nama %></h1>
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+  hr {
+    border: none;
+    height: 3px;
+    color: #333;
+    background-color: #333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+</style>
+<h3>Hi, <%= name %>! Your Contact List:</h3>
+<form method="POST" action="/contact/addForm" style="margin-bottom: 20px">
+  <button type="submit" class="btn btn-primary">Add New</button>
+</form>
+
+<% if (showName) { %>
+<h3>Detail</h3>
+<p>Name: <%- showName ? showName : "" %></p>
+<p>Phone: <%- showPhone ? showPhone : "" %></p>
+<p>Email: <%- showEmail ? showEmail : "" %></p>
+<% } else { %>
+<div></div>
+<% } %> 
+
+<% if (updated === true ) { %>
+<p>Data <%=updatedName%> has been updated!</p>
+<% } else { %>
+<div></div>
+<% } %>
+
+<hr />
+<% if (contacts.length == 0) { %>
+<h3>No contact found!</h3>
+<% } else {%>
+<table style="width: 100%">
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th style="width: 20%">Action</th>
+  </tr>
+  <% contacts.forEach((val, idx) => { %>
+  <tr>
+    <td><%= val.name %></td>
+    <td><%= val.phone %></td>
+    <td style="text-align: center">
+      <form method="GET" action="/contact/view/<%= val.name %>">
+        <button type="submit">Detail</button>
+      </form>
+
+      <form
+        method="POST"
+        action="/contact/editForm?currentName=<%= val.name %>"
+      >
+        <button type="submit">Edit</button>
+      </form>
+
+      <form method="POST" action="/contact/<%= val.name %>?_method=DELETE">
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+  <% }) %>
+</table>
+
+<%}%>

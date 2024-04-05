@@ -9,8 +9,13 @@
   "author": "abe",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.3",
     "ejs": "^3.1.9",
     "express": "^4.19.2",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
+    "validator": "^13.11.0"
   }
 }

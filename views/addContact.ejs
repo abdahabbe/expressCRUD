@@ -1,0 +1,17 @@
+<!-- alert and reload page if there's error -->
+<script>
+  if ("<%= err  %>" !== "") {
+    window.onload = () => {
+      alert("<%= err %>");
+    };
+  }
+</script>
+
+<h2>Add new contact below:</h2>
+
+<form action= "/contact/add" method="post">
+  <input name="uName" type="text" placeholder="Your Name" value="<%= currentName %>" required />
+  <input name="uPhone" type="text" placeholder="Your Phone" value="<%= currentPhone %>" required />
+  <input name="uEmail" type="email" placeholder="Your email" value="<%= currentEmail %>" />
+  <button type="submit">Add Contact</button>
+</form>
