@@ -155,6 +155,7 @@ app.put("/contact/edit", (req, res) => {
     return;
   }
 
+  // masih belum berfungsi code nya ****
   if (!newData.name) { //if new name is not inputed, it will take current name
     newData.name = currentData.name;
   } else if (newData.name !== currentData.name) {
@@ -188,7 +189,7 @@ app.delete("/contact/:name", (req, res) => {
     showName: "",
     showPhone: "",
     showEmail: "",
-    updated: true,
+    updated: false,
   });
 });
 
